@@ -1,25 +1,34 @@
 #include <iostream>
 using namespace std;
 
-int gcd (int a, int b) {
-    while (b != 0) {
-     int temp = b;
-     b = a % b;
-     a = temp;
-    }
-     return a;
-}
-
 int main() {
-     int a, b;
-     cin >> a >> b;
-     cout << gcd(a, b);
-     return 0;
-}
+    int n;
+    cin >> n;
 
-/* temp = 6
-b = 2
-a = 6
-temp = 2
-b = 0
-a = 2 */
+    // Kiểm tra nếu n vượt quá kích thước mảng
+    if (n > 1000) {
+        cout << "So luong phan tu vuot qua kich thuoc mang!" << endl;
+        return 1;
+    }
+
+    int arr[1000];
+    int count = 0;
+
+    // Đọc các giá trị vào mảng
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Kiểm tra và đếm các phần tử chia hết cho 5
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 5 == 0) {
+            cout << arr[i] << " ";
+            count++;
+        }
+    }
+
+    // In ra tổng số phần tử chia hết cho 5
+    cout << endl << count << endl;
+
+    return 0;
+}
